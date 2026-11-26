@@ -25,3 +25,4 @@ return <div className="app"><aside className={`sidebar ${mobile?'open':''}`}><di
 function EmptyChart({label}:{label:string}){return <div className="empty-chart"><Layers3 size={24}/><span>{label}</span></div>}
 function PlayTable({plays}:{plays:any[]}){return <div className="table-scroll"><table><thead><tr><th>WEEK</th><th>DOWN & DISTANCE</th><th>PLAY DESCRIPTION</th><th>YARDS</th><th>EPA</th></tr></thead><tbody>{plays.length?plays.map((p,i)=><tr key={`${p.game_id}-${i}`}><td>W{p.week}</td><td>{p.down??'—'} & {p.ydstogo??'—'}</td><td className="desc">{p.desc||p.play_type||'Play description unavailable'}</td><td>{p.yards_gained??'—'}</td><td className={(p.epa??0)<0?'good-epa':'bad-epa'}>{p.epa==null?'—':p.epa.toFixed(2)}</td></tr>):<tr><td colSpan={5} className="empty-cell">No verified play records available for this filter.</td></tr>}</tbody></table></div>}
 export default App;
+(Commit message)
