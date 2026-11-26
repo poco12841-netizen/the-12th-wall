@@ -1,3 +1,0 @@
-import type {SeasonData} from './types';
-const empty:SeasonData={meta:{season:2026,updated_at:'',status:'awaiting-data',sources:[],notes:['No data snapshot has been generated yet. Run the Python data pipeline before treating any dashboard value as real.']},team:{games:0,opp_points_per_game:null,opp_yards_per_game:null,third_down_rate:null,defensive_epa_per_play:null,turnovers:null},players:[],weekly:[],plays:[],league:[]};
-export async function loadSeason():Promise<SeasonData>{try{const r=await fetch(`${import.meta.env.BASE_URL}data/seahawks-2026.json`,{cache:'no-store'});if(!r.ok) return empty;return await r.json() as SeasonData;}catch{return empty;}}
